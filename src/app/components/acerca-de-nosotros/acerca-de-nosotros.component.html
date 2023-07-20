@@ -1,0 +1,24 @@
+<section class="container">
+    <div class="tim-title d-flex justify-content-center">
+        <h3>Acerca de nosotros</h3>
+        <br/>
+    </div>
+    <div class="row">        
+        <div class="col-sm-12 col-md-6">            
+            <img src="assets/img/familia.jpeg" class="img-thumbnail img-responsive" alt="Rounded Image">
+            <p class="text-center">Nuestra iglesia</p>           
+        </div>
+        <div class="col-sm-12 col-md-6">   
+            <div>
+                <p>{{texto[0]}}</p> 
+            </div>         
+            <div>
+                <p>{{texto[1] | cortarTexto:100}}</p> 
+            </div>
+            <div class="mt-5 d-flex justify-content-end">
+                <button type="button" class="btn btn-danger">ver mas</button>
+            </div>
+            
+        </div>
+    </div>
+</section>

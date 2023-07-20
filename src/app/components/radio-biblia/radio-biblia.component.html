@@ -1,0 +1,30 @@
+<section class="container">
+    <div class="row">
+        <div class="col-8 float-center m-auto">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h4>Porque el Señor dice: El que tiene oídos para oír, oiga.
+                        San Mateo 13:9
+                    </h4>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div *ngIf="btnRadio; else btnstop">
+                        <button (click)="playRadio()" type="button" class="btn btn-danger">                            
+                            ESCUCHA LA BIBLIA
+                        </button> 
+                    </div>
+                    <ng-template #btnstop>
+                        <button id="btn-detener" (click)="stopRadio()" type="button" class="btn btn-danger">Detener audio</button>
+                    </ng-template>
+                    
+                </div>
+            </div>
+            
+            
+            
+            <audio #audiocheck id="audio" controls [volume]="volumen">
+                <source type="audio/mpeg" src="http://stream.zeno.fm/tv9fg38rc0hvv"/>
+            </audio>                   
+        </div>
+    </div>
+</section>

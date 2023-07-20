@@ -1,0 +1,24 @@
+.landing-section{
+    background-image: url(../../../assets/img/bruno-abatti.jpg);   
+    background-size: 100% 100%;
+    background-position: fixed;
+}
+.page-header{
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.container{
+    background-color: rgba(0, 0, 0, 0.682);    
+}
+label, h2, h4,p{
+    color: #fff;
+    text-align: justify;
+}
+.box-humo{
+    margin-top: 60px !important;
+}
+.texto-apoyanos{
+    margin-bottom: 30px;
+}
+.moving-clouds{
+    z-index: -999999;
+}

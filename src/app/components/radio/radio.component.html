@@ -1,0 +1,29 @@
+<div class="box-radio-principal">
+    <section class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-4">
+            <div class="title"><p>Radio Asamblea de Dios Virtual</p></div> 
+        </div>
+        <div class="row">
+            <div *ngIf="btnRadio; else btnstop">
+                <div class="container-button">
+                    <button [disabled]="enabled" (click)="playRadio()" type="button" class="btn btn-danger">                            
+                        Escucha la radio ADV
+                    </button> 
+                </div>                
+            </div>
+            <ng-template #btnstop>
+                <button id="btn-detener" (click)="stopRadio()" type="button" class="btn btn-danger">Detener radio</button>
+            </ng-template>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <audio #audioref id="audio" controls [volume]="volumen" allow="autoplay">
+                <source type="audio/mpeg" src="http://stream.zeno.fm/qwwivqvut7cuv"/>
+            </audio>
+        </div>       
+        
+    </div>
+</section>
+</div>
+
