@@ -9,35 +9,43 @@ import { Subject } from 'rxjs';
 export class RadioComponent implements AfterViewInit, OnInit {
   @ViewChild('audioref') audioref:ElementRef<HTMLAudioElement>
   @ViewChild('btnplay') btnplay:ElementRef<HTMLButtonElement>
+  btnelement:any;
   btnRadio=true;
   getdt = new Subject<any>()
   enabled= true;
   volumen:number = 0.5;
   constructor() { }
   ngOnInit(): void {
+    this.btnelement = document.getElementById('audio')   
     this.getdt.asObservable().subscribe((data:HTMLAudioElement) =>{
 
     })
   }
-  async ngAfterViewInit() {
-    
-    this.getdt.next(this.audioref.nativeElement);
-    await this.playRadio()
+  ngAfterViewInit() {
+    this.btnelement.play()
     this.btnRadio = false;
+    console.log("load",this.audioref.nativeElement.onload) 
+    this.getdt.next(this.audioref.nativeElement);
+    //this.playRadio()
+    
     // let poops = setInterval(()=>{
-    //   if(document.getElementById('btnplay')){
-    //       console.log("BTN PLAY")
-          
+    //   if(this.audioref.nativeElement){
+    //       console.log("BTN PLAY") 
+    //       this.playRadio()
     //       clearInterval(poops);                    
     //   }
-    // }, 100);
+    // }, 1000);
     // this.audioref.nativeElement.addEventListener('canplay',(ev)=>{
     //   console.log("EVENT",ev);
     //   this.btnplay.nativeElement.disabled = false
     // })    
   }
   playRadio(){    
-   return this.audioref.nativeElement.play()    
+    this.btnRadio = false; 
+    const radio = this.audioref.nativeElement
+    radio.muted = false;
+    radio.play()
+   
   }
   stopRadio(){
     this.audioref.nativeElement.pause();
