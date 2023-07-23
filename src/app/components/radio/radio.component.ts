@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class RadioComponent implements AfterViewInit, OnInit {
   @ViewChild('audioref') audioref:ElementRef<HTMLAudioElement>
+  @ViewChild('btnplay') btnplay:ElementRef<HTMLButtonElement>
   btnRadio=true;
   getdt = new Subject<any>()
   enabled= true;
@@ -21,8 +22,9 @@ export class RadioComponent implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {
     this.getdt.next(this.audioref.nativeElement);
     this.audioref.nativeElement.addEventListener('canplay',(ev)=>{
-      console.log("EVENT",ev);
-      this.enabled = false;
+      console.log("EVENT",ev);      
+      this.btnplay.nativeElement.disabled = false
+      this.playRadio();
     })
   }
   playRadio(){
