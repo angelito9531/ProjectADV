@@ -19,10 +19,11 @@ export class RadioComponent implements AfterViewInit, OnInit {
 
     })
   }
-  ngAfterViewInit(): void {
+  async ngAfterViewInit() {
     
     this.getdt.next(this.audioref.nativeElement);
-    this.playRadio()
+    await this.playRadio()
+    this.btnRadio = false;
     // let poops = setInterval(()=>{
     //   if(document.getElementById('btnplay')){
     //       console.log("BTN PLAY")
@@ -35,10 +36,8 @@ export class RadioComponent implements AfterViewInit, OnInit {
     //   this.btnplay.nativeElement.disabled = false
     // })    
   }
-  playRadio(){
-    this.audioref.nativeElement.play().then(el => {
-        this.btnRadio = false;
-    });
+  playRadio(){    
+   return this.audioref.nativeElement.play()    
   }
   stopRadio(){
     this.audioref.nativeElement.pause();
